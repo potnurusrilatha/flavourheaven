@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { FaArrowUp } from 'react-icons/fa'
+import Link from 'next/link'
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false)
-
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -23,13 +23,14 @@ const Footer = () => {
     <footer className="bg-blue-900 border-t border-blue-700 shadow-inner mt-10 relative text-white">
       <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
         <h2 className="text-xl font-bold">🍴 FeastHub</h2>
+
         <section className="text-center md:text-left space-y-2">
           <h3 className="text-xl font-medium">Get in Touch</h3>
           <address className="not-italic space-y-1 text-sm">
             📍 123 Food Street, Flavor Town <br />
             📞{' '}
             <a
-              href="tel:+919876543210"
+              href="tel:+46736543210"
               className="hover:text-yellow-400 transition font-medium"
             >
               +46 73 654 3210
@@ -45,26 +46,32 @@ const Footer = () => {
           </address>
         </section>
 
-      
         <nav aria-label="Footer Navigation" className="flex gap-6 text-sm">
-          <a href="#" className="hover:text-yellow-400 transition font-medium">
+          <Link
+            href="/"
+            className="hover:text-yellow-400 transition font-medium"
+          >
             Home
-          </a>
-          <a href="#" className="hover:text-yellow-400 transition font-medium">
+          </Link>
+          <Link
+            href="/profile"
+            className="hover:text-yellow-400 transition font-medium"
+          >
             Profile
-          </a>
-          <a href="#" className="hover:text-yellow-400 transition font-medium">
+          </Link>
+          <Link
+            href="/categories"
+            className="hover:text-yellow-400 transition font-medium"
+          >
             Category
-          </a>
+          </Link>
         </nav>
 
-     
         <p className="text-sm mt-4 md:mt-0 font-medium">
           © {new Date().getFullYear()} FeastHub. All rights reserved.
         </p>
       </div>
 
-    
       {isVisible && (
         <button
           onClick={scrollToTop}
