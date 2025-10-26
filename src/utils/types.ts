@@ -81,3 +81,6 @@ export type Dish = {
 export type DishesType = Dish[];
 
 
+export type LogOutProp = {
+    click:() => void
+}

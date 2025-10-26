@@ -27,12 +27,12 @@ const DisplayRecipe = ({ meals, category }: RecipeProp) => {
         {meals.map((item, index) => (
           <div
             key={index}
-            className="bg-gradient-to-r from-blue-50 via-white to-blue-100 
-                       text-blue-900 rounded-3xl shadow-2xl border border-blue-200
+            className="bg-gradient-to-r from-blue-50 via-white to-blue-500 
+                       text-blue-900 rounded-3xl shadow-2xl border border-blue-600
                        flex flex-col items-center overflow-hidden transition-transform duration-300
                        hover:scale-105 hover:shadow-lg"
           >
-            {/* Meal Name */}
+          
             <Link
               href={
                 isHome
@@ -44,7 +44,7 @@ const DisplayRecipe = ({ meals, category }: RecipeProp) => {
               {item.strMeal}
             </Link>
 
-            {/* Meal Image */}
+           
             <Image
               className="h-56 w-full object-cover rounded-t-3xl"
               src={item.strMealThumb}
@@ -53,7 +53,7 @@ const DisplayRecipe = ({ meals, category }: RecipeProp) => {
               height={300}
             />
 
-            {/* Favourite Icon */}
+      
             <Image
               src={
                 user?.favouriteRecipes.some((r) => r.idMeal === item.idMeal)

@@ -14,7 +14,7 @@ const Recipes = async ({params}:{params: Promise<{id:string,category : string}>}
                 <h2 className="font-bold italic text-2xl text-amber-800 text-center m-4">{item.name}</h2>
                 
                 <div className="flex justify-center">
-                    <Image src={item.image} alt={item.name} width={100} height={100} className="h-auto w-[50%] m-4"/>
+                    <Image src={item.image} alt={item.name} width={300} height={300} className="h-auto w-[50%] m-4"/>
                 </div>
                 
                 <h3  className="font-bold text-left italic text-[20px] m-4">Required Ingredients</h3>

@@ -4,18 +4,18 @@ import LoginForm from '@/components/LogInForm'
 
 const HeroSection = () => {
   return (
-    <section
+    <section 
       className="relative h-[90vh] bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80')",
       }}
     >
-      {/* Gradient overlay */}
+ 
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-blue-800/50 to-blue-700/40"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-12 items-center">
-        {/* Left: Text */}
+       
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ const HeroSection = () => {
           </a>
         </motion.div>
 
-        {/* Right: Floating Login Form */}
+       
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
