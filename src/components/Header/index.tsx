@@ -33,7 +33,7 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <UserCircleIcon className="h-6 w-6 text-blue-900" />
+            <UserCircleIcon className="h-6 w-6 text-blue-900 gap-4" />
             <span className="font-medium text-blue-900">{user.name}</span>
             <Logout click={handleLogout} />
           </div>

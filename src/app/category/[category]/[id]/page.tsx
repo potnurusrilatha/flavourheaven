@@ -7,14 +7,14 @@ const Recipes = async ({params}:{params: Promise<{id:string,category : string}>}
     const detailedRecipe:RecipeType[] = await getDetailedRecipe(id)
 
     return (
-        <div className="bg-amber-50 flex justify-center grow ">
+        <div className="bg-blue-50 flex justify-center grow ">
             {detailedRecipe && detailedRecipe.map((item,index)=> 
-            <div key={index} className="bg-amber-100 max-w-[300px] xs:max-w-[400px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] my-8 text-center rounded-2xl">
+            <div key={index} className="bg-blue-100 max-w-[300px] xs:max-w-[400px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] my-8 text-center rounded-2xl">
                 
-                <h2 className="font-bold italic text-2xl text-amber-800 text-center m-4">{item.name}</h2>
+                <h2 className="font-bold italic text-2xl text-blue-700 text-center m-4">{item.name}</h2>
                 
                 <div className="flex justify-center">
-                    <Image src={item.image} alt={item.name} width={300} height={300} className="h-auto w-[50%] m-4"/>
+                    <Image src={item.image} alt={item.name} width={300} height={300} className="h-auto w-[50%] m-4 border-2 rounded-2xl"/>
                 </div>
                 
                 <h3  className="font-bold text-left italic text-[20px] m-4">Required Ingredients</h3>

@@ -1,70 +1,41 @@
+
 'use client'
-import { createContext, useContext, useState, useEffect } from "react";
-import { UserType, UserContextType, FavouriteRecipeType } from "./types";
+import { createContext,useContext, useState } from "react";
+import { UserType,UserContextType, MealType, FavouriteRecipeType } from "./types";
 
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<UserContextType | null>(null)
 
-export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<UserType | null>(null);
-  const [loading, setLoading] = useState(true);
+export const UserContextProvider = ({ children } : {children :  React.ReactNode} ) => {
+    const [user,setUser] = useState<UserType | null>(null)
 
-  // Load user from localStorage when app starts
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
-  }, []);
-
-  // Save user to localStorage whenever it changes
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
-
-  const setFavouriteCategory = (category: string) => {
+    const setFavouriteCategory = (category: string) => {
     if (!user) return;
-    const updatedUser = { ...user, favouriteCategory: category };
-    setUser(updatedUser);
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-  };
+     setUser({
+      ...user,
+      favouriteCategory: category,
+    });
+    };
 
-  const addFavouriteRecipe = (recipe: FavouriteRecipeType) => {
+    const addFavouriteRecipe = (recipe: FavouriteRecipeType) => {
     if (!user) return;
     if (user.favouriteRecipes.some(r => r.idMeal === recipe.idMeal)) return;
-    const updatedUser = { ...user, favouriteRecipes: [...user.favouriteRecipes, recipe] };
-    setUser(updatedUser);
-    localStorage.setItem("user", JSON.stringify(updatedUser));
+    setUser({ ...user, favouriteRecipes: [...user.favouriteRecipes, recipe] });
   };
 
   const removeFavouriteRecipe = (id: string) => {
     if (!user) return;
-    const updatedUser = {
+    setUser({
       ...user,
       favouriteRecipes: user.favouriteRecipes.filter(r => r.idMeal !== id),
-    };
-    setUser(updatedUser);
-    localStorage.setItem("user", JSON.stringify(updatedUser));
+    });
   };
-
-  return (
-    <UserContext.Provider
-      value={{
-        user,
-        setUser,
-        setFavouriteCategory,
-        addFavouriteRecipe,
-        removeFavouriteRecipe,
-        loading,
-      }}
-    >
-      {children}
-    </UserContext.Provider>
-  );
-};
-
-export const useUserContext = () => useContext(UserContext);
+    return (
+        <UserContext.Provider  value={{ user, setUser, setFavouriteCategory, addFavouriteRecipe, removeFavouriteRecipe }}>
+            {children}
+        </UserContext.Provider>
+    )
+}
+ 
+export const useUserContext = () => {
+    return useContext (UserContext) 
+}
