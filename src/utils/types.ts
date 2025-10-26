@@ -49,33 +49,33 @@ export interface RecipeType {
 
 
 export interface FeatureType {
-  title: string
-  desc: string
-  icon: string
+  title: string,
+  desc: string,
+  icon: string,
 }
 
 export interface ChefType {
-  name: string
-  role: string
-  img: string
+  name: string,
+  role: string,
+  img: string,
 }
 
 export interface TestimonialType {
-  quote: string
-  name: string
-  img: string
+  quote: string,
+  name: string,
+  img: string,
 }
 export interface JoinCommunityType {
-  heading: string
-  description: string
-  buttonText: string
-  buttonLink: string
+  heading: string,
+  description: string,
+  buttonText: string,
+  buttonLink: string,
 }
 
 export type Dish = {
-  img: string;
-  title?: string; 
-  desc?: string; 
+  img: string,
+  title?: string,
+  desc?: string,
 };
 
 export type DishesType = Dish[];
