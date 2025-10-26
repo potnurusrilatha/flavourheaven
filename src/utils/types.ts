@@ -72,5 +72,12 @@ export interface JoinCommunityType {
   buttonLink: string
 }
 
-export interface DishesType = string[]
+export type Dish = {
+  img: string;
+  title?: string; 
+  desc?: string; 
+};
+
+export type DishesType = Dish[];
+
 

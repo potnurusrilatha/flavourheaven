@@ -2,7 +2,7 @@
 import type { DishesType } from '@/utils/types'
 
 export const dishes: DishesType = [
-  '/dish1.jpg',
-  '/dish2.jpg',
-  '/dish3.jpg',
+  { img: '/dish1.jpg', title: 'Pasta' },
+  { img: '/dish2.jpg', title: 'Pizza' },
+  { img: '/dish3.jpg', title: 'Dosa' },
 ]
