@@ -1,3 +1,5 @@
+import { FeatureType } from '@/utils/types'
+
 export const features: FeatureType[] = [
   {
     title: 'Global Recipes',
